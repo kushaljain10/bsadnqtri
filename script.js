@@ -12,23 +12,41 @@ document.addEventListener('DOMContentLoaded', () => {
     return upper ? String.fromCharCode(code).toUpperCase() : String.fromCharCode(code);
   }
 
-  // Generate gibberish with random word lengths
+  // Generate gibberish: length is 2x original; include scrambled original letters
   function gibberish(text) {
-    function randomLenFor(originalLen) {
-      const max = Math.min(20, Math.max(3, Math.round(originalLen * 1.5)));
-      return 1 + Math.floor(Math.random() * max);
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
     }
 
     return text.replace(/[A-Za-z]+/g, (word) => {
-      const newLen = randomLenFor(word.length);
-      let raw = '';
-      for (let i = 0; i < newLen; i++) raw += randomLetter(false);
+      const len = word.length;
+      const targetLen = len * 2;
 
+      // Base random letters
+      const base = Array.from({ length: targetLen }, () => randomLetter(false));
+
+      // Scrambled original letters (lowercase)
+      const scrambled = shuffle(word.split('').map((c) => c.toLowerCase()));
+
+      // Randomly choose positions to inject original letters
+      const positions = shuffle(Array.from({ length: targetLen }, (_, i) => i));
+      const injectPositions = positions.slice(0, len).sort((a, b) => a - b);
+      injectPositions.forEach((pos, idx) => {
+        base[pos] = scrambled[idx];
+      });
+
+      let raw = base.join('');
+
+      // Preserve simple case patterns
       const allUpper = /^[A-Z]+$/.test(word);
       const capitalized = /^[A-Z][a-z]+$/.test(word);
       if (allUpper) return raw.toUpperCase();
-      if (capitalized) return raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
-      return raw.toLowerCase();
+      if (capitalized) return raw.charAt(0).toUpperCase() + raw.slice(1);
+      return raw;
     });
   }
 
