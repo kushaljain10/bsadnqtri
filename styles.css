@@ -71,6 +71,66 @@ body::before {
   font-size: 0.95rem;
 }
 
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0 16px;
+}
+.tab-btn {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  cursor: pointer;
+}
+.tab-btn.active {
+  background: var(--primary);
+  border-color: transparent;
+}
+
+.tab-content[hidden] {
+  display: none;
+}
+
+/* Canvas card and controls */
+.canvas-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#drawCanvas {
+  width: 100%;
+  height: 400px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.canvas-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.palette {
+  display: grid;
+  grid-template-columns: repeat(10, 28px);
+  gap: 8px;
+}
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+.swatch.selected {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);

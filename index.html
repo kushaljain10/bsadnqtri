@@ -28,22 +28,51 @@
         <div class="scribble scribble-hero" aria-hidden="true"></div>
       </header>
 
-      <section class="card translator">
-        <div class="field">
-          <label for="inputText">Input</label>
-          <textarea id="inputText" rows="5"></textarea>
+      <nav class="tabs" aria-label="Pages">
+        <button class="tab-btn active" data-tab="translator">Translator</button>
+        <button class="tab-btn" data-tab="canvas">Canvas</button>
+      </nav>
+
+      <section id="tab-translator" class="tab-content active">
+        <div class="card translator">
+          <div class="field">
+            <label for="inputText">Input</label>
+            <textarea id="inputText" rows="5"></textarea>
+          </div>
+          <div class="actions">
+            <button id="translateBtn" class="btn primary">Translate</button>
+          </div>
+          <div class="field output">
+            <div class="output-row">
+              <textarea id="outputText" rows="5" readonly></textarea>
+              <button
+                id="copyOutputBtn"
+                class="icon-btn"
+                aria-label="Copy output"
+                disabled
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="actions">
-          <button id="translateBtn" class="btn primary">Translate</button>
-        </div>
-        <div class="field output">
-          <div class="output-row">
-            <textarea id="outputText" rows="5" readonly></textarea>
+
+        <div class="card contract">
+          <div class="contract-header">
+            <span>Contract Address</span>
             <button
-              id="copyOutputBtn"
+              id="copyContractBtn"
               class="icon-btn"
-              aria-label="Copy output"
-              disabled
+              aria-label="Copy contract address"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -57,26 +86,46 @@
               </svg>
             </button>
           </div>
+          <div class="contract-box" id="contractBox" tabindex="0">
+            4wVtRm2CExz1CN3jp8ujNNhiCSKMVerdYPTXTby4pump
+          </div>
         </div>
       </section>
 
-      <section class="card contract">
-        <div class="contract-header">
-          <span>Contract Address</span>
-          <button
-            id="copyContractBtn"
-            class="icon-btn"
-            aria-label="Copy contract address"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-              <path
-                d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"
-              ></path>
-            </svg>
-          </button>
-        </div>
-        <div class="contract-box" id="contractBox" tabindex="0">
-          4wVtRm2CExz1CN3jp8ujNNhiCSKMVerdYPTXTby4pump
+      <section id="tab-canvas" class="tab-content" hidden>
+        <div class="card canvas-card">
+          <canvas
+            id="drawCanvas"
+            width="800"
+            height="400"
+            aria-label="Drawing canvas"
+          ></canvas>
+          <div class="canvas-controls">
+            <div id="palette" class="palette" aria-label="Color palette"></div>
+            <button
+              id="scribbleBtn"
+              class="btn"
+              aria-label="Add random scribble"
+            >
+              Scribble
+            </button>
+            <button
+              id="downloadCanvasBtn"
+              class="icon-btn"
+              aria-label="Download canvas"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5 20h14v-2H5v2zm7-18v12l5-5 1.41 1.41L12 17.83 4.59 10.41 6 9l5 5V2h1z"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
     </main>
