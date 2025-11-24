@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$bsadnqtri[</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Schoolbell&family=Rock+Salt&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1 class="title">$bsadnqtri[</h1>
+        <p class="subtitle">ghavupgcwoghpawhecuwhmvwhta</p>
+        <div class="scribble scribble-hero" aria-hidden="true"></div>
+      </header>
+
+      <section class="card translator">
+        <div class="field">
+          <label for="inputText">Input</label>
+          <textarea id="inputText" rows="5"></textarea>
+        </div>
+        <div class="actions">
+          <button id="translateBtn" class="btn primary">Translate</button>
+        </div>
+        <div class="field output">
+          <div class="output-row">
+            <textarea id="outputText" rows="5" readonly></textarea>
+            <button
+              id="copyOutputBtn"
+              class="icon-btn"
+              aria-label="Copy output"
+              disabled
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card contract">
+        <div class="contract-header">
+          <span>Contract Address</span>
+          <button
+            id="copyContractBtn"
+            class="icon-btn"
+            aria-label="Copy contract address"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="contract-box" id="contractBox" tabindex="0">
+          4wVtRm2CExz1CN3jp8ujNNhiCSKMVerdYPTXTby4pump
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+  <style></style>
+</html>

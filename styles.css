@@ -1,0 +1,317 @@
+:root {
+  --bg-overlay: rgba(10, 12, 16, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.15);
+  --text: #f5f7fa;
+  --muted: #c7cbd1;
+  --primary: #7c5cff;
+  --primary-hover: #6a4cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg-overlay) center/cover no-repeat fixed;
+  background-image: url("bg.png");
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero {
+  text-align: center;
+  margin: 24px 0 20px;
+}
+.title {
+  font-size: 2rem;
+  margin: 0 0 6px;
+  letter-spacing: 0.4px;
+}
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 18px;
+  margin-top: 18px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+.btn.primary {
+  background: var(--primary);
+  border-color: transparent;
+}
+.btn.primary:hover {
+  background: var(--primary-hover);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  cursor: pointer;
+}
+.icon-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.icon-btn svg {
+  fill: currentColor;
+}
+
+.output-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+.output-row textarea {
+  flex: 1;
+}
+
+.contract-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+.contract-box {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  word-break: break-all;
+}
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .container {
+    padding: 18px;
+  }
+  .icon-btn {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* === Colourful crayon overrides === */
+:root {
+  --card-border: rgba(255, 255, 255, 0.18);
+  --primary: #ff6fd8;
+  --primary-hover: #ff8ce2;
+  --rainbow: linear-gradient(
+    90deg,
+    #ff5f6d,
+    #ffc371,
+    #47d7ac,
+    #7c5cff,
+    #ff6fd8,
+    #f9ed69
+  );
+}
+
+body {
+  font-family: "Patrick Hand", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.hero {
+  position: relative;
+}
+.title {
+  font-family: "Rock Salt", "Schoolbell", cursive;
+  /* background: var(--rainbow); */
+  background-size: 200% 200%;
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  /* animation: rainbowShift 8s linear infinite; */
+}
+.subtitle {
+  font-family: "Schoolbell", cursive;
+  /* background: var(--rainbow); */
+  background-size: 200% 200%;
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  /* animation: rainbowShift 10s linear infinite reverse; */
+}
+
+.btn.primary {
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(255, 111, 216, 0.35);
+}
+.btn.primary:hover {
+  filter: brightness(1.05);
+}
+
+.icon-btn {
+  border: 2px solid transparent;
+  background: linear-gradient(
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.08)
+      )
+      padding-box,
+    var(--rainbow) border-box;
+}
+
+.contract-box {
+  border: 2px dashed transparent;
+  background-image: linear-gradient(
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.06)
+      )
+      padding-box,
+    var(--rainbow) border-box;
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+}
+
+textarea {
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))
+      padding-box,
+    var(--rainbow) border-box;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(0, 0, 0, 0.04) inset;
+}
+
+#toast {
+  border: 2px solid transparent;
+  background-image: linear-gradient(
+        rgba(25, 25, 25, 0.85),
+        rgba(25, 25, 25, 0.85)
+      )
+      padding-box,
+    var(--rainbow) border-box;
+  z-index: 1000;
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Scribble decoration under the hero */
+/* .scribble.scribble-hero {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -6px;
+  width: 280px;
+  height: 60px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='60' viewBox='0 0 280 60'%3E%3Cpath d='M10 30 Q 70 5 140 30 T 270 30' fill='none' stroke='url(%23g)' stroke-width='6' stroke-linecap='round'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%' stop-color='%23ff5f6d'/%3E%3Cstop offset='25%' stop-color='%23ffc371'/%3E%3Cstop offset='50%' stop-color='%2347d7ac'/%3E%3Cstop offset='75%' stop-color='%237c5cff'/%3E%3Cstop offset='100%' stop-color='%23ff6fd8'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+} */
+
+@keyframes rainbowShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
