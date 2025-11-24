@@ -262,6 +262,21 @@ textarea {
     width: 42px;
     height: 42px;
   }
+
+  /* Mobile layout: palette on top, Scribble left, Download right */
+  .canvas-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "palette palette"
+      "scribble download";
+    align-items: center;
+    row-gap: 12px;
+    column-gap: 12px;
+  }
+  #palette { grid-area: palette; }
+  #scribbleBtn { grid-area: scribble; justify-self: start; }
+  #downloadCanvasBtn { grid-area: download; justify-self: end; }
 }
 
 /* === Colourful crayon overrides === */
